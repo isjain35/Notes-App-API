@@ -1,0 +1,6 @@
+
+create a database with name 'test'
+
+create table notedata (id integer auto increment not null primary key, title varchar(50), body varchar(255));
+
+insert into notedata (title,body) values();
