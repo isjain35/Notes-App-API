@@ -2,6 +2,7 @@ package com.example.notes.services;
 
 import com.example.notes.models.NoteData;
 import com.example.notes.repository.NoteRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,8 +37,14 @@ public class NoteServiceImpl implements NoteService{
     }
 
     @Override
-    public NoteData updateNote(NoteData noteData){
-        return noteRepository.saveAndFlush(noteData);
+    public NoteData updateNote(Long id, NoteData noteData) throws Exception{
+        try {
+            NoteData existingNoteData = listNoteById(id);
+            BeanUtils.copyProperties(noteData,existingNoteData,"id");
+            return noteRepository.saveAndFlush(existingNoteData);
+        } catch(Exception e){
+            throw new Exception("Not Found!!");
+        }
     }
 
     @Override
@@ -47,6 +54,26 @@ public class NoteServiceImpl implements NoteService{
             noteRepository.deleteById(id);
         }
         catch(Exception e) {
+            throw new Exception("Not Found!!");
+        }
+    }
+
+    @Override
+    public List<NoteData> listNotesByTitle(String title) throws Exception{
+        List<NoteData>  notes = noteRepository.findAllByTitle(title);
+        if (!notes.isEmpty()){
+            return notes;
+        }else {
+            throw new Exception("Not Found!!");
+        }
+    }
+
+    @Override
+    public List<NoteData> listNotesBySearch(String search_query) throws Exception{
+        List<NoteData>  notes = noteRepository.SearchTable(search_query);
+        if (!notes.isEmpty()){
+            return notes;
+        }else {
             throw new Exception("Not Found!!");
         }
     }
