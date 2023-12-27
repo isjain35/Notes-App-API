@@ -4,6 +4,8 @@
 
 - Download and install MySql on your pc.
 
+- Import APIs file from resources in postman.
+
 MySql Configuration:
 
 Run the following queries for initial setup:
