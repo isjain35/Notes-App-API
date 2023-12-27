@@ -5,6 +5,7 @@ import com.example.notes.models.NoteData;
 import java.util.List;
 
 public interface NoteService {
+    void testFunction();
     List<NoteData> listNotes();
     NoteData listNoteById(Long id) throws Exception;
     NoteData addNote(NoteData noteData);

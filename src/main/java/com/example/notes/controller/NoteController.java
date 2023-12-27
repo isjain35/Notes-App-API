@@ -19,6 +19,11 @@ public class NoteController {
     @Autowired
     NoteService noteService;
 
+    @GetMapping("/test")
+    public void testing(){
+        noteService.testFunction();
+    }
+
     @GetMapping
     public List<NoteData> listNotes(){
         return noteService.listNotes();
