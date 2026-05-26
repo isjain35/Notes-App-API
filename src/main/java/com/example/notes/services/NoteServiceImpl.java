@@ -59,7 +59,7 @@ public class NoteServiceImpl implements NoteService{
         redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Update to note with id: "+ id +" requested.");
         try {
             NoteData existingNoteData = listNoteById(id);
-            BeanUtils.copyProperties(noteData,existingNoteData,"id");
+            //BeanUtils.copyProperties(noteData,existingNoteData,"id");
             redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Note with id: "+ id +" updated.");
             return noteRepository.saveAndFlush(existingNoteData);
         } catch(Exception e){
