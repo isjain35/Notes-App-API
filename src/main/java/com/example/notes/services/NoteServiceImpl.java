@@ -39,7 +39,7 @@ public class NoteServiceImpl implements NoteService{
         redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Note with id: "+ id +" requested.");
         Optional<NoteData> optionalNoteData = noteRepository.findById(id);
         if(optionalNoteData.isPresent()) {
-            redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Note with id: "+ id +" served.");
+            //redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Note with id: "+ id +" served.");
             return optionalNoteData.get();
         }
         else {
