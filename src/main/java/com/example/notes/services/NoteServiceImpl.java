@@ -30,7 +30,7 @@ public class NoteServiceImpl implements NoteService{
 
     @Override
     public List<NoteData> listNotes() {
-        redisRepository.saveLog(dtf.format(LocalDateTime.now()), "List of all notes requested.");
+        //redisRepository.saveLog(dtf.format(LocalDateTime.now()), "List of all notes requested.");
         return noteRepository.findAll();
     }
 
