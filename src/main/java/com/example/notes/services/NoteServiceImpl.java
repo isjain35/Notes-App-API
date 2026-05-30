@@ -18,7 +18,7 @@ public class NoteServiceImpl implements NoteService{
 
     //@Autowired
     NoteRepository noteRepository;
-    //@Autowired
+    @Autowired
     RedisRepository redisRepository;
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss.SSS");
 
