@@ -1,0 +1,16 @@
+severity: strict
+
+rules:
+  security: strict
+  correctness: strict
+  performance: moderate
+  style: off
+  documentation: off
+
+exclude:
+  - "**/*.md"
+  - "**/test/**"
+
+maxFindings: 10
+
+minInlineSeverity: WARNING
