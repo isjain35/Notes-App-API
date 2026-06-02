@@ -14,3 +14,4 @@ exclude:
 maxFindings: 10
 
 minInlineSeverity: WARNING
+autoApproveBelow: WARNING 
