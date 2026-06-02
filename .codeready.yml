@@ -3,7 +3,7 @@ severity: strict
 rules:
   security: strict
   correctness: strict
-  performance: moderate
+  performance: strict
   style: off
   documentation: off
 
