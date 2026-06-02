@@ -10,6 +10,7 @@ rules:
 exclude:
   - "**/*.md"
   - "**/test/**"
+  - ".codeready.yml"
 
 maxFindings: 10
 
