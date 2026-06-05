@@ -14,5 +14,5 @@ exclude:
 
 maxFindings: 10
 
-minInlineSeverity: WARNING
-autoApproveBelow: WARNING 
+#minInlineSeverity: WARNING
+#autoApproveBelow: WARNING 
