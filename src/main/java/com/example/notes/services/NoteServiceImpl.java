@@ -84,7 +84,7 @@ public class NoteServiceImpl implements NoteService{
 
     @Override
     public List<NoteData> listNotesByTitle(String title) throws Exception{
-        redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Search by exact title requested.");
+        //redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Search by exact title requested.");
         List<NoteData>  notes = noteRepository.findAllByTitle(title);
         if (!notes.isEmpty()){
             return notes;
