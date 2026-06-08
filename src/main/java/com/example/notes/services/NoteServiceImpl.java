@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class NoteServiceImpl implements NoteService{
 
-    @Autowired
+    //@Autowired
     NoteRepository noteRepository;
     @Autowired
     RedisRepository redisRepository;
