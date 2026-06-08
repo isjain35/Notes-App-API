@@ -50,7 +50,7 @@ public class NoteServiceImpl implements NoteService{
 
     @Override
     public NoteData addNote(NoteData noteData){
-        redisRepository.saveLog(dtf.format(LocalDateTime.now()), "New note added.");
+        //redisRepository.saveLog(dtf.format(LocalDateTime.now()), "New note added.");
         return noteRepository.saveAndFlush(noteData);
     }
 
