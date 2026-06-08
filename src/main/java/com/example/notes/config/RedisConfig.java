@@ -16,7 +16,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class RedisConfig {
 
     @Autowired
-    RedisProperties redisProperties;
+    RedisProperties redisproperties;
 
     //@Bean
     public JedisConnectionFactory jedisConnectionFactory(){
