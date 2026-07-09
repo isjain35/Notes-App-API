@@ -1,0 +1,18 @@
+severity: strict
+
+rules:
+  security: strict
+  correctness: strict
+  performance: strict
+  style: off
+  documentation: off
+
+exclude:
+  - "**/*.md"
+  - "**/test/**"
+  - ".codeready.yml"
+
+maxFindings: 10
+
+#minInlineSeverity: WARNING
+#autoApproveBelow: WARNING 

@@ -16,9 +16,9 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class NoteServiceImpl implements NoteService{
 
-    @Autowired
+    //@Autowired
     NoteRepository noteRepository;
-    @Autowired
+    //@Autowired
     RedisRepository redisRepository;
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss.SSS");
 
@@ -30,7 +30,7 @@ public class NoteServiceImpl implements NoteService{
 
     @Override
     public List<NoteData> listNotes() {
-        redisRepository.saveLog(dtf.format(LocalDateTime.now()), "List of all notes requested.");
+        //redisRepository.saveLog(dtf.format(LocalDateTime.now()), "List of all notes requested.");
         return noteRepository.findAll();
     }
 
@@ -39,7 +39,7 @@ public class NoteServiceImpl implements NoteService{
         redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Note with id: "+ id +" requested.");
         Optional<NoteData> optionalNoteData = noteRepository.findById(id);
         if(optionalNoteData.isPresent()) {
-            redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Note with id: "+ id +" served.");
+            //redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Note with id: "+ id +" served.");
             return optionalNoteData.get();
         }
         else {
@@ -59,7 +59,7 @@ public class NoteServiceImpl implements NoteService{
         redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Update to note with id: "+ id +" requested.");
         try {
             NoteData existingNoteData = listNoteById(id);
-            BeanUtils.copyProperties(noteData,existingNoteData,"id");
+            //BeanUtils.copyProperties(noteData,existingNoteData,"id");
             redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Note with id: "+ id +" updated.");
             return noteRepository.saveAndFlush(existingNoteData);
         } catch(Exception e){
@@ -86,11 +86,7 @@ public class NoteServiceImpl implements NoteService{
     public List<NoteData> listNotesByTitle(String title) throws Exception{
         redisRepository.saveLog(dtf.format(LocalDateTime.now()), "Search by exact title requested.");
         List<NoteData>  notes = noteRepository.findAllByTitle(title);
-        if (!notes.isEmpty()){
-            return notes;
-        }else {
-            throw new Exception("Not Found!!");
-        }
+        return notes;
     }
 
     @Override

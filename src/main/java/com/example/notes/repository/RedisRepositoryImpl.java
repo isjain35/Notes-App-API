@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class RedisRepositoryImpl implements RedisRepository{
 
-    @Autowired
+    //@Autowired
     RedisTemplate<String, String> redisTemplate;
 
     @Override
